@@ -1,4 +1,4 @@
-package com.bowltop.bowltop;
+package com.bowltop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
