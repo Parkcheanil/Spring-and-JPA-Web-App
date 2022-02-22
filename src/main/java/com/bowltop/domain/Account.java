@@ -1,6 +1,7 @@
 package com.bowltop.domain;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -62,6 +63,10 @@ public class Account {
     private boolean studyUpdatedByEmail;
 
     private boolean studyUpdatedByWeb;
+
+    public void generateEmailCheckToken() {
+        this.emailCheckToken = UUID.randomUUID().toString();
+    }
     
 
 }

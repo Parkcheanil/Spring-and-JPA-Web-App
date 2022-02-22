@@ -9,5 +9,4 @@ public class BowltopApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BowltopApplication.class, args);
 	}
-
 }
