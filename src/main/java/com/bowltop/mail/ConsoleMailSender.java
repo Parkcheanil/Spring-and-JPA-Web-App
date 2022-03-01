@@ -1,10 +1,9 @@
-package com.bowltop;
+package com.bowltop.mail;
 
 import java.io.InputStream;
 
 import javax.mail.internet.MimeMessage;
 
-import org.apache.logging.log4j.message.SimpleMessage;
 import org.springframework.context.annotation.Profile;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>BowlTopClass</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+      .container {
+          max-width: 100%;
+      }
+  </style>
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a th:href="@{/}" class="navbar-brand">
+        <img src="/images/bowtop_logo.png" width="30" height="30">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <form th:action="@{/search/study}" class="form-inline" method="get">
+                    <input type="search" class="form-control mr-sm-2" name="keyword" placeholder="캡슐 찾기">
+                </form>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav justify-content-end">
+            <li class="nav-item">
+                <a th:href="@{/login}" class="nav-link">로그인</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/signup}" class="nav-link">가입</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+  <div class="py05 text-center" th:if="${error}">
+    <p class="lead">볼탑클래스 이메일 확인</p>
+    <div class="alert alert-danger" role="alert">
+      이메일 확인 링크가 정확하지 않습니다.
+    </div>
+  </div>
+  
+  <div class="py-5 text-center" th:if="${error == null}">
+    <div class="lead">볼탑클래스 이메일 확인</div>
+    <h2>
+      이메일을 확인했습니다. <span th:text="${numberOfUser}">10</span>번째 회원,
+      <span th:text="${nickname}">박천일</span>님 가입을 축하합니다.
+    </h2>
+    <small class="text-info">이제부터 가입할 때 사용한 이메일 또는 닉네임과 패스워드로 로그인 할 수 있습니다.</small>
+  </div>
+</body>
+</html>
