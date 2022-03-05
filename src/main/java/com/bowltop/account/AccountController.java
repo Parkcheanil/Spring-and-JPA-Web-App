@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import com.bowltop.domain.Account;
 
-import org.springframework.scheduling.quartz.LocalDataSourceJobStore;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -56,17 +55,15 @@ public class AccountController {
             return view;
         }
 
-        if (account.getEmailCheckToken().equals(token)) {
+        if (!account.getEmailCheckToken().equals(token)) {
             model.addAttribute("error", "wrong.token");
             return view;
         }
 
-        account.setEmailVerified(true);
-        account.setJoinedAt(LocalDateTime.now());
+        account.completeSignup();
         model.addAttribute("numberOfUser", accountRepository.count());
         model.addAttribute("nickname", account.getNickname());
         return view;
-
     }
 
 }
