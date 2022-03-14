@@ -1,43 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>BowlTopClass</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-        .container {
-            max-width: 100%;
-        }
-    </style>
-</head>
+
+<head th:replace="fragments.html :: head"></head>
+
 <body class="bg-light">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a th:href="@{/}" class="navbar-brand">
-            <img src="/images/bowtop_logo.png" width="30" height="30">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <form th:action="@{/search/study}" class="form-inline" method="get">
-                        <input type="search" class="form-control mr-sm-2" name="keyword" placeholder="캡슐 찾기">
-                    </form>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item">
-                    <a th:href="@{/login}" class="nav-link">로그인</a>
-                </li>
-                <li class="nav-item">
-                    <a th:href="@{/signup}" class="nav-link">가입</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+   
+    <div th:replace="fragments.html :: main-nav"></div>
 
     <div class="container">
         <div class="py-5 text-center">
@@ -88,6 +56,8 @@
                 </div>
             </form>
         </div>
+
+        <div th:replace="fragments.html :: footer"></div>
     </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
