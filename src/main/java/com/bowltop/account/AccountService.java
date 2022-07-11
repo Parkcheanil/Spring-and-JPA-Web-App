@@ -61,7 +61,7 @@ public class AccountService {
         // AuthenticationManager에서 사용하는 생성자를 가져와서 사용하는것임
         // 이렇게하는 이유는 패스워드 접근을 인코딩된 패스워드에만 접근할 수 있기때문에
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-                account.getNickname(), 
+                new UserAccount(account),
                 account.getPassword(),
                 List.of(new SimpleGrantedAuthority("ROLE_USER")));
         SecurityContextHolder.getContext().setAuthentication(token);
